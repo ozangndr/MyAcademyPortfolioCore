@@ -1,19 +1,25 @@
 🌐 Kişisel Portföy Projesi (ASP.NET Core MVC)
 ------------------------------------------------------------------------------ 
-Bu proje, ASP.NET Core MVC ve Entity Framework Core kullanılarak geliştirilmiş, dinamik ve yönetilebilir bir portföy uygulamasıdır.
-Amacım; yazılım geliştirme deneyimlerimi sergileyebileceğim, projelerimi ve yeteneklerimi paylaşabileceğim, modern bir yönetim paneline sahip web uygulaması oluşturmaktır.
+Bu proje, Benim Kişisel Portfolio Projemdir.
 
 
-  ✨ Öne Çıkan Özellikler
+  ✨ Başlıca Özellikler
+  ------------------------------------------------------------------------------
+  
   🛡️ Kimlik Doğrulama & Hesap Yönetimi
 
   🔑 Güvenli giriş/çıkış (Cookie Authentication)
 
   👤 Profil bilgilerini güncelleme
 
-  🔒 Şifre değiştirme (mevcut şifre doğrulama + yeni şifre tekrarı)
+  🔒 Admin Kullanıcı Adı ve Şifre değişikliği
+  
+  📄 Hakkımda, Eğitim, Deneyimler, Yetenekler, Referanslar, Projeler için CRUD işlemleri
 
-📬 Mesaj Yönetimi
+  ⚙️ Yönetim paneli üzerinden kolay kullanım
+  
+
+📬 Kullanıcı Mesajları
 ------------------------------------------------------------------------------
 
   📥 Gelen mesajları listeleme
@@ -25,13 +31,7 @@ Amacım; yazılım geliştirme deneyimlerimi sergileyebileceğim, projelerimi ve
   🔄 Okunan / okunmamış mesajları filtreleme
 
   🗑️ Mesaj silme
-
-🗂️ Dinamik İçerik Yönetimi
-------------------------------------------------------------------------------
-
-  📄 Hakkımda, Eğitim, Deneyimler, Yetenekler, Referanslar, Projeler için CRUD işlemleri
-
-  ⚙️ Yönetim paneli üzerinden kolay kullanım
+  
 
 🎨 Arayüz & Kullanıcı Deneyimi
 ------------------------------------------------------------------------------
@@ -45,6 +45,7 @@ Amacım; yazılım geliştirme deneyimlerimi sergileyebileceğim, projelerimi ve
   🎯 SweetAlert entegrasyonu ile etkileşimli uyarılar
 
   🪟 Dinamik modal popup kullanımı
+  
 
 ⚙️ Kullanılan Teknolojiler
 ------------------------------------------------------------------------------ 
