@@ -1,0 +1,62 @@
+﻿@model Testimonial
+@{
+    ViewData["Title"] = "Yeni Referans";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<div class="card shadow-sm mt-4">
+    <div class="card-body">
+        <form method="post">
+
+            <div class="row g-3">
+
+                <div class="col-12">
+                    <label class="form-label" asp-for="Name">Adı</label>
+                    <input type="text" class="form-control" asp-for="Name" placeholder="İsim girin" required />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label" asp-for="Title">Başlık</label>
+                    <input type="text" class="form-control" asp-for="Title" placeholder="Başlık girin" required />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label" asp-for="ImageUrl">Resim Url</label>
+                    <input type="text" class="form-control" asp-for="ImageUrl" placeholder="https://example.com/image.jpg" required />
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label" asp-for="Comment">Açıklama</label>
+                    <input type="text" class="form-control" asp-for="Comment" placeholder="Kısa açıklama girin" required />
+                    <span asp-validation-for="Comment" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label" asp-for="Review">Puan</label>
+                    <select class="form-control" asp-for="Review" required>
+                        <option value="">Seçiniz</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <span asp-validation-for="Review" class="text-danger"></span>
+                </div>
+
+                <div class="col-12 mt-3 d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save"></i> Kaydet
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-x-circle"></i> İptal
+                    </a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

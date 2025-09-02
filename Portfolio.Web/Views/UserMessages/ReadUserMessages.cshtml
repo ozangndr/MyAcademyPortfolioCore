@@ -1,0 +1,23 @@
+﻿@model UserMessage
+@{
+    ViewData["Title"] = "Mesaj Oku";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+
+<form method="post">    
+    <div class="form-group">
+        <label>Ad - Soyad</label>
+        <input type="text" class="form-control" asp-for="Name" readonly />
+        <label>Email</label>
+        <input type="text" class="form-control" asp-for="Email" readonly />
+        <label>Konu</label>
+        <input type="text" class="form-control" asp-for="Subject" readonly />
+        <label>Mesaj</label>
+        <textarea class="form-control" asp-for="MessageBody" rows="3" readonly></textarea>
+        <label>Okundu</label>
+        <input type="checkbox" class="form-check" asp-for="IsRead" readonly />
+    </div>
+    <button class="btn btn-outline-primary">Geri Dön</button>
+</form>
+

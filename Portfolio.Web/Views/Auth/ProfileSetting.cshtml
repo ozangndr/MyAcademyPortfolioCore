@@ -1,0 +1,168 @@
+﻿@model ChangeUserViewModel
+@{
+    ViewData["Title"] = "Kullanıcı Bilgilerini Güncelle";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+        @if (ViewBag.Message != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+                <i class="bi bi-check-circle me-1"></i> @ViewBag.Message
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Kapat"></button>
+            </div>
+        }
+
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-header bg-primary text-white rounded-top-4">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-person-gear fs-4 me-2"></i>
+                    <div>
+                        <h5 class="mb-0">Kullanıcı Bilgilerini Güncelle</h5>
+                        <small class="opacity-75">Eski bilgileri doğrula, yenileri kaydet</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body p-4">
+                <form asp-action="ProfileSetting" method="post" class="needs-validation" novalidate>
+                    @Html.AntiForgeryToken()
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="row g-4">
+                        <!-- Mevcut Bilgiler -->
+                        <div class="col-12 col-lg-6">
+                            <div class="pb-2 mb-3 border-bottom">
+                                <h6 class="mb-0"><i class="bi bi-shield-lock me-1"></i> Mevcut Bilgiler</h6>
+                                <small class="text-muted">Doğrulama için gereklidir</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="OldUserName" class="form-label">Mevcut Kullanıcı Adı</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <input asp-for="OldUserName" class="form-control" autocomplete="username" required />
+                                </div>
+                                <span asp-validation-for="OldUserName" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="OldPassword" class="form-label">Mevcut Şifre</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                                    <input asp-for="OldPassword" class="form-control" type="password" id="OldPassword" autocomplete="current-password" required />
+                                    <button type="button" class="btn btn-outline-secondary" id="toggleOldPassword" tabindex="-1">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </div>
+                                <span asp-validation-for="OldPassword" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <!-- Yeni Bilgiler -->
+                        <div class="col-12 col-lg-6">
+                            <div class="pb-2 mb-3 border-bottom">
+                                <h6 class="mb-0"><i class="bi bi-pencil-square me-1"></i> Yeni Bilgiler</h6>
+                                <small class="text-muted">Kaydedilecek bilgiler</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="NewUserName" class="form-label">Yeni Kullanıcı Adı</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person-plus"></i></span>
+                                    <input asp-for="NewUserName" class="form-control" autocomplete="off" required />
+                                </div>
+                                <span asp-validation-for="NewUserName" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-2">
+                                <label asp-for="NewPassword" class="form-label">Yeni Şifre</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                    <input asp-for="NewPassword" class="form-control" type="password" id="NewPassword" autocomplete="new-password" required />
+                                    <button type="button" class="btn btn-outline-secondary" id="toggleNewPassword" tabindex="-1">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </div>
+                                <span asp-validation-for="NewPassword" class="text-danger small"></span>
+                            </div>
+
+                            <!-- Şifre Güç Göstergesi -->
+                            <div class="mb-3">
+                                <div class="progress" style="height: 6px;">
+                                    <div id="passwordStrengthBar" class="progress-bar" role="progressbar"></div>
+                                </div>
+                                <small id="passwordStrengthText" class="text-muted"></small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2 mt-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save me-1"></i> Güncelle
+                        </button>
+                        <button type="reset" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-counterclockwise me-1"></i> Temizle
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts doğrudan sayfada -->
+<partial name="_ValidationScriptsPartial" />
+
+<script>
+    // Şifre göster/gizle
+    function togglePassword(inputId, btnId) {
+        const input = document.getElementById(inputId);
+        const btn = document.getElementById(btnId);
+        const icon = btn.querySelector('i');
+        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+        input.setAttribute('type', type);
+        icon.classList.toggle('bi-eye');
+        icon.classList.toggle('bi-eye-slash');
+    }
+
+    document.getElementById('toggleOldPassword')?.addEventListener('click', () => togglePassword('OldPassword', 'toggleOldPassword'));
+    document.getElementById('toggleNewPassword')?.addEventListener('click', () => togglePassword('NewPassword', 'toggleNewPassword'));
+
+    // Basit şifre güç ölçer
+    const newPwdInput = document.getElementById('NewPassword');
+    const bar = document.getElementById('passwordStrengthBar');
+    const text = document.getElementById('passwordStrengthText');
+
+    function strengthScore(pw) {
+        let s = 0;
+        if (!pw) return 0;
+        if (pw.length >= 8) s++;
+        if (pw.length >= 12) s++;
+        if (/[A-Z]/.test(pw) && /[a-z]/.test(pw)) s++;
+        if (/\d/.test(pw)) s++;
+        if (/[^A-Za-z0-9]/.test(pw)) s++;
+        return Math.min(s, 5);
+    }
+
+    function renderStrength(pw) {
+        const score = strengthScore(pw);
+        const pct = (score / 5) * 100;
+        bar.style.width = pct + '%';
+        bar.className = 'progress-bar';
+        if (score <= 2) {
+            bar.classList.add('bg-danger');
+            text.textContent = 'Zayıf';
+        } else if (score === 3) {
+            bar.classList.add('bg-warning');
+            text.textContent = 'Orta';
+        } else {
+            bar.classList.add('bg-success');
+            text.textContent = 'Güçlü';
+        }
+    }
+
+    newPwdInput?.addEventListener('input', (e) => renderStrength(e.target.value));
+</script>

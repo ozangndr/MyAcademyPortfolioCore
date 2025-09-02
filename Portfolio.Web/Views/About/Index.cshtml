@@ -1,0 +1,89 @@
+﻿@model About
+@{
+    ViewData["Title"] = "Hakkımda";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="row g-3">
+        <!-- Resim -->
+        <div class="col-md-6">
+            <label class="form-label">Resim URL</label>
+            <input type="text" class="form-control" asp-for="ImageUrl" placeholder="Resim linki girin" required />
+        </div>
+
+        <!-- Başlık -->
+        <div class="col-md-6">
+            <label class="form-label">Başlık</label>
+            <input type="text" class="form-control" asp-for="Title" placeholder="Başlık girin" required />
+        </div>
+
+        <!-- Açıklama -->
+        <div class="col-12">
+            <label class="form-label">Açıklama</label>
+            <textarea class="form-control" asp-for="Description" rows="3" placeholder="Kısa açıklama girin" required></textarea>
+        </div>
+
+        <!-- Doğum Tarihi -->
+        <div class="col-md-4">
+            <label class="form-label">Doğum Tarihi</label>
+            <input type="date" class="form-control" asp-for="BirthDate" required />
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+
+        <!-- Web Site -->
+        <div class="col-md-4">
+            <label class="form-label">Web Site</label>
+            <input type="url" class="form-control" asp-for="WebSite" placeholder="https://example.com" required />
+        </div>
+
+        <!-- Telefon -->
+        <div class="col-md-4">
+            <label class="form-label">Telefon</label>
+            <input type="tel" class="form-control" asp-for="PhoneNumber" placeholder="+90 5xx xxx xx xx" required />
+        </div>
+
+        <!-- Şehir -->
+        <div class="col-md-4">
+            <label class="form-label">Şehir</label>
+            <input type="text" class="form-control" asp-for="City" placeholder="Şehir girin" required />
+        </div>
+
+        <!-- Eğitim -->
+        <div class="col-md-4">
+            <label class="form-label">Eğitim</label>
+            <input type="text" class="form-control" asp-for="Graduation" placeholder="Eğitim bilgisi girin" required />
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-4">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" asp-for="Email" placeholder="email@example.com" required />
+        </div>
+
+        <!-- İş Durumu -->
+        <div class="col-12">
+            <div class="form-check form-switch mt-2">
+                <input class="form-check-input" type="checkbox" asp-for="IsAvailable" />
+                <label class="form-check-label">İş Durumu (Mevcut mu?)</label>
+            </div>
+        </div>
+
+        <!-- Güncelle Butonu -->
+        <div class="col-12 mt-3">
+            <button class="btn btn-primary btn-lg w-100">Güncelle</button>
+        </div>
+    </div>
+</form>

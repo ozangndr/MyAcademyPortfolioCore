@@ -1,0 +1,52 @@
+﻿
+@*
+   Burası istatistik alanı
+*@
+
+
+<section id="stats" class="stats section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>İstatistikler</h2>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4">
+            <div class="col-md-6 col-xl-3">
+                <div class="card stats-card text-center text-white" style="background: linear-gradient(135deg,#1e3c72,#2a5298);">
+                    <div class="card-body">
+                        <i class="bi bi-kanban-fill fs-2 mb-2"></i>
+                        <h5>Proje Sayısı</h5>
+                        <h3 class="mb-0">@ViewBag.projectCount</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card stats-card text-center text-white" style="background: linear-gradient(135deg,#11998e,#38ef7d);">
+                    <div class="card-body">
+                        <i class="bi bi-lightning-fill fs-2 mb-2"></i>
+                        <h5>Yeteneklerim</h5>
+                        <h3 class="mb-0">@ViewBag.SkillsCount</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card stats-card text-center text-white" style="background: linear-gradient(135deg,#232526,#414345);">
+                    <div class="card-body">
+                        <i class="bi bi-envelope-fill fs-2 mb-2"></i>
+                        <h5>Okunan Mesajlar</h5>
+                        <h3 class="mb-0">@ViewBag.readMessagesCount</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card stats-card text-center text-white" style="background: linear-gradient(135deg,#ff416c,#ff4b2b);">
+                    <div class="card-body">
+                        <i class="bi bi-people-fill fs-2 mb-2"></i>
+                        <h5>Referanslarım</h5>
+                        <h3 class="mb-0">@ViewBag.testimonialCount</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

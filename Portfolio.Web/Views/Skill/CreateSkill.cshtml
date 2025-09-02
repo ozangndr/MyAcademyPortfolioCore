@@ -1,0 +1,43 @@
+﻿@model Skill
+@{
+    ViewData["Title"] = "Yeni Yetenek";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<div class="card shadow-sm mt-4">
+    <div class="card-body">
+        <form method="post">
+
+            <div class="row g-3">
+
+                <div class="col-12">
+                    <label class="form-label" asp-for="Title">Yetenek Adı</label>
+                    <input type="text" class="form-control" asp-for="Title" placeholder="Yetenek adı girin" required />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label" asp-for="Description">Yetenek Açıklama</label>
+                    <input type="text" class="form-control" asp-for="Description" placeholder="Kısa açıklama girin" required />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label" asp-for="Percentage">Beceri Derecesi (%)</label>
+                    <input type="number" class="form-control" asp-for="Percentage" placeholder="0 - 100 arasında değer girin" min="0" max="100" required />
+                    <span asp-validation-for="Percentage" class="text-danger"></span>
+                </div>
+
+                <div class="col-12 mt-3 d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save"></i> Kaydet
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-x-circle"></i> İptal
+                    </a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

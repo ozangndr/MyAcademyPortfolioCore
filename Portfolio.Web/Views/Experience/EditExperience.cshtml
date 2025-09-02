@@ -1,0 +1,56 @@
+﻿@model Experience
+@{
+    ViewData["Title"] = "Deneyim Düzenle";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<div class="card shadow-sm mt-4">
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" asp-for="ExperienceId" />
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label class="form-label">Başlık</label>
+                    <input type="text" class="form-control" asp-for="Title" placeholder="Pozisyon başlığı girin" required />
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Başlangıç Yılı</label>
+                    <input type="text" class="form-control" asp-for="StartYear" placeholder="YYYY" required />
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Bitiş Yılı</label>
+                    <input type="text" class="form-control" asp-for="EndYear" placeholder="YYYY" required />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Firma</label>
+                    <input type="text" class="form-control" asp-for="Company" placeholder="Firma adı girin" required />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Şehir</label>
+                    <input type="text" class="form-control" asp-for="City" placeholder="Şehir girin" required />
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Açıklama</label>
+                    <input type="text" class="form-control" asp-for="Description" placeholder="Kısa açıklama girin" required />
+                </div>
+
+                <div class="col-12 mt-3 d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save"></i> Güncelle
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-x-circle"></i> İptal
+                    </a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

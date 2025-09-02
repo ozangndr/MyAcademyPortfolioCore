@@ -1,0 +1,50 @@
+﻿@model ContactInfo
+@{
+    ViewData["Title"] = "İletişim Bilgileri";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+
+<!-- Başarılı Güncelleme Mesajı -->
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form method="post">
+    <input type="hidden" asp-for="ContactInfoId" />
+
+    <div class="row g-3">
+        <!-- Adres -->
+        <div class="col-12">
+            <label class="form-label">Adres</label>
+            <textarea class="form-control" asp-for="Address" rows="3" placeholder="Adresinizi girin" required></textarea>
+        </div>
+
+        <!-- Telefon -->
+        <div class="col-md-6">
+            <label class="form-label">Telefon</label>
+            <input type="tel" class="form-control" asp-for="PhoneNumber" placeholder="+90 5xx xxx xx xx" required />
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" asp-for="Email" placeholder="email@example.com" required />
+        </div>
+
+        <!-- Harita URL -->
+        <div class="col-12">
+            <label class="form-label">Harita URL</label>
+            <input type="url" class="form-control" asp-for="MapUrl" placeholder="https://maps.google.com/..." required />
+        </div>
+
+        <!-- Güncelle Butonu -->
+        <div class="col-12 mt-3">
+            <button class="btn btn-primary btn-lg w-100">Güncelle</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,51 @@
+﻿@model Education
+@{
+    ViewData["Title"] = "Eğitim Düzenle";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<div class="card shadow-sm mt-4">
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" asp-for="EducationId" />
+
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <label class="form-label">Okul Adı</label>
+                    <input type="text" class="form-control" asp-for="SchoolName" placeholder="Okul adı girin" required />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Bölüm</label>
+                    <input type="text" class="form-control" asp-for="Department" placeholder="Bölüm girin" required />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Başlangıç Yılı</label>
+                    <input type="text" class="form-control" asp-for="StartYear" placeholder="YYYY" required />
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Bitiş Yılı</label>
+                    <input type="text" class="form-control" asp-for="EndYear" placeholder="YYYY" required />
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Açıklama</label>
+                    <input type="text" class="form-control" asp-for="Description" placeholder="Kısa açıklama girin" required />
+                </div>
+
+                <div class="col-12 mt-3 d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save"></i> Güncelle
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-x-circle"></i> İptal
+                    </a>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewData["Title"] = "İstatistiklerim";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-primary">
+            <div class="card-body">
+                <span class="m-t-10">Proje Sayısı</span>
+                <h3 class="text-white m-0">@ViewBag.projectCount</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-info">
+            <div class="card-body">
+                <span class="m-t-10">Ortalama Yetenek</span>
+                <h3 class="text-white m-0">@ViewBag.SkillAverage</h3>                
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-dark">
+            <div class="card-body">
+                <span class="m-t-10">Maksimum Değerlendirme</span>
+                <h3 class="text-white m-0">@ViewBag.maxReviewOwner</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-danger">
+            <div class="card-body">
+                <span class="m-t-10">Değerlendirme Ortalaması</span>
+                <h3 class="text-white m-0">@ViewBag.reviewAverage</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-success">
+            <div class="card-body">
+                <span class="m-t-10">Toplam Mesaj Sayısı</span>
+                <h3 class="text-white m-0">@ViewBag.messageCount</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-warning">
+            <div class="card-body">
+                <span class="m-t-10">Okunan Mesaj Sayısı</span>
+                <h3 class="text-white m-0">@ViewBag.readMessagesCount</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-secondary">
+            <div class="card-body">
+                <span class="m-t-10">Okunmayan Mesaj Sayısı</span>
+                <h3 class="text-white m-0">@ViewBag.unReadMessagesCount</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-gradient" style="background-color:#6f42c1;">
+            <div class="card-body">
+                <span class="m-t-10">Son Mesaj Sahibi</span>
+                <h3 class="text-white m-0">@ViewBag.lastMesageOwner</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-gradient" style="background-color:#795548;">
+            <div class="card-body">
+                <span class="m-t-10">Deneyim Sayısı</span>
+                <h3 class="text-white m-0">@ViewBag.experienceCount</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-gradient" style="background-color:#e83e8c;">
+            <div class="card-body">
+                <span class="m-t-10">Toplam Deneyim Yılım</span>
+                <h3 class="text-white m-0">@ViewBag.experienceTotal</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-gradient" style="background-color:#0d1b2a;">
+            <div class="card-body">
+                <span class="m-t-10">Eğitim Sayısı</span>
+                <h3 class="text-white m-0">@ViewBag.educationCount</h3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="card social-widget-card bg-gradient" style="background-color:#343a40;">
+            <div class="card-body">
+                <span class="m-t-10">Toplam Eğitim Yılım</span>
+                <h3 class="text-white m-0">@ViewBag.educationTotal</h3>
+            </div>
+        </div>
+    </div>
+</div>
+

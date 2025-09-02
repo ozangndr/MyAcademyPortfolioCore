@@ -1,0 +1,101 @@
+﻿@model List<UserMessage>
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+
+@{
+    ViewData["Title"] = "Kullanıcı Mesajları";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+    int count = 0;
+}
+
+<div>
+    <a style="background-color:#2196F3; color:black; padding:6px 12px; display:inline-block; text-decoration:none;">
+        Bekleyen Mesajlar
+    </a>
+    <a>   </a>
+    
+    <a style="background-color:#dcedc8; color:black; padding:6px 12px; display:inline-block; text-decoration:none;">
+        Okunan Mesajlar
+    </a>
+
+
+</div>
+
+<br />
+
+<input type="hidden" id="csrfToken" value="@Antiforgery.GetAndStoreTokens(ViewContext.HttpContext).RequestToken" />
+
+
+<div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="messageModalLabel">Mesaj Detayı</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body" id="modalMessageBody">
+                <!-- Mesaj burada gösterilecek -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Sıra</th>
+            <th>Kullanıcı Adı</th>
+            <th>Konu</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            count++;
+            var rowClass = item.IsRead ? "table-success" : "table-primary"; // soft renkler
+            <tr class="@rowClass">
+                <td>@count</td>
+                <td>@item.Name</td>
+                <td>@item.Subject</td>
+                <td>
+                    <a href="/UserMessages/DeleteUserMessages/@item.UserMessageId" class="btn btn-danger btn-sm">Sil</a>
+                    <button type="button" class="btn btn-info btn-sm"
+                            onclick="openMessageModal(@item.UserMessageId, '@Html.Raw(item.MessageBody.Replace("'", "\\'"))')">
+                        Mesaj Oku
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+<script>
+    function openMessageModal(messageId, messageBody) {
+        // Modalda mesajı göster
+        document.getElementById('modalMessageBody').innerHTML = messageBody;
+
+        // Modalı aç
+        var myModal = new bootstrap.Modal(document.getElementById('messageModal'));
+        myModal.show();
+
+        // POST isteğini gönder
+        var token = document.getElementById('csrfToken').value;
+        fetch('/UserMessages/ReadUserMessages/' + messageId, {
+            method: 'POST',
+            headers: {
+                'RequestVerificationToken': token
+            }
+        })
+            .then(response => {
+                if (!response.ok) console.error('POST isteği başarısız oldu');
+            })
+            .catch(error => console.error(error));
+    }
+</script>

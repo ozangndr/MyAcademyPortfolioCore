@@ -1,0 +1,63 @@
+﻿@model List<Skill>
+@*
+    Yeteneklerim Sayfası - Modern Tema
+*@
+
+<section id="skills" class="skills section">
+
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Yeteneklerim</h2>
+        <p>Aşağıda yeteneklerim ve onlara ait beceri düzeyleri verilmiştir.</p>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6">
+                    <div class="card skill-card shadow-sm p-3 mb-3"
+                         data-bs-toggle="tooltip"
+                         data-bs-placement="top"
+                         title="@item.Description">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="skill-title fw-bold">@item.Title</span>
+                            <span class="skill-val fw-bold">@item.Percentage%</span>
+                        </div>
+                        <div class="progress" style="height: 12px; border-radius: 8px; overflow: hidden;">
+                            <div class="progress-bar" role="progressbar" style="width: @item.Percentage%; background: linear-gradient(90deg, #28a745, #1e7e34);" aria-valuenow="@item.Percentage" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+
+</section>
+
+<style>
+    .skill-card {
+        background-color: #f8f9fa;
+        border-radius: 1rem;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+    }
+
+    .skill-title {
+        font-size: 1.1rem;
+    }
+
+    .skill-val {
+        color: #28a745;
+    }
+
+    .progress {
+        background-color: #e9ecef;
+    }
+</style>

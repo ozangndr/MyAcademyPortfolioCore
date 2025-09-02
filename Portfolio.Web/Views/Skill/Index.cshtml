@@ -1,0 +1,56 @@
+﻿@model List<Skill>
+@{
+    ViewData["Title"] = "Yeteneklerim";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <a href="/Skill/CreateSkill" class="btn btn-primary">
+        <i class="bi bi-plus-lg"></i> Yeni Yetenek Oluştur
+    </a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body table-responsive">
+        <table class="table table-hover table-striped align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th style="width:5%;">#</th>
+                    <th>Yetenek</th>
+                    <th>Beceri Derecesi</th>
+                    <th style="width:20%;">İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int count = 0;
+                }
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.Title</td>
+                        <td>
+                            <div class="progress" style="height:25px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: @item.Percentage%;"
+                                     aria-valuenow="@item.Percentage" aria-valuemin="0" aria-valuemax="100">
+                                    @item.Percentage%
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <a href="/Skill/EditSkill/@item.SkillId" class="btn btn-sm btn-info me-2">
+                                <i class="bi bi-pencil-square"></i> Güncelle
+                            </a>
+                            <a href="/Skill/DeleteSkill/@item.SkillId" class="btn btn-sm btn-danger" onclick="return confirm('Bu yeteneği silmek istediğinize emin misiniz?');">
+                                <i class="bi bi-trash"></i> Sil
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

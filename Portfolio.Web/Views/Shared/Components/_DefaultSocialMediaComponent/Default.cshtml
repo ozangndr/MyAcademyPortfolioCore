@@ -1,0 +1,14 @@
+﻿@model List<SocialMedia>
+@*
+    Burası Sosyal Medya Linkleri
+*@
+
+@foreach (var item in Model)
+{
+    <div class="header-social-links">
+        <a href="@item.TwitterUrl" class="twitter" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+        <a href="@item.FacebookUrl" class="facebook" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+        <a href="@item.InstagramUrl" class="instagram" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+        <a href="@item.LinkedInUrl" class="linkedin" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+    </div>
+}

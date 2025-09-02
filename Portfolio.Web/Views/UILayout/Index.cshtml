@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head -->
+@await Component.InvokeAsync("_DefaultHeadComponent")
+<!-- Head -->
+
+
+<body class="index-page">
+
+    <!-- Header -->
+    @await Component.InvokeAsync("_DefaultHeaderComponent")
+    <!-- Header -->
+
+
+
+    <main class="main">
+
+       @RenderBody()
+
+      
+    </main>
+
+    <footer id="footer" class="footer light-background">
+
+        <div class="container">
+           
+            @await Component.InvokeAsync("_DefaultSocialMediaComponent")
+            <div class="credits">
+                Bu Tasarım Ali Ozan Göndür kişisine aittir.
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+
+    
+    <!-- Vendor JS Files -->
+    <script src="~/Kelly-1.0.0/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Kelly-1.0.0/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/Kelly-1.0.0/assets/vendor/aos/aos.js"></script>
+    <script src="~/Kelly-1.0.0/assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="~/Kelly-1.0.0/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="~/Kelly-1.0.0/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/Kelly-1.0.0/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/Kelly-1.0.0/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Kelly-1.0.0/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Main JS File -->
+    <script src="~/Kelly-1.0.0/assets/js/main.js"></script>
+
+   
+
+</body>
+
+</html>

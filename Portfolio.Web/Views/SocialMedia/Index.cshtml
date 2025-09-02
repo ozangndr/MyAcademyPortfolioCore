@@ -1,0 +1,51 @@
+﻿@model SocialMedia
+@{
+    ViewData["Title"] = "Sosyal Medya Bağlantıları";
+    Layout = "~/Views/AdminLayout/Layout.cshtml";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form method="post">
+    <input type="hidden" asp-for="SocialMediaId" />
+
+    <div class="row g-3">
+
+        <!-- Twitter -->
+        <div class="col-md-6">
+            <label class="form-label">Twitter Adres</label>
+            <input type="url" class="form-control" asp-for="TwitterUrl" placeholder="https://twitter.com/..." required />
+        </div>
+
+        <!-- Facebook -->
+        <div class="col-md-6">
+            <label class="form-label">Facebook Adres</label>
+            <input type="url" class="form-control" asp-for="FacebookUrl" placeholder="https://facebook.com/..." required />
+        </div>
+
+        <!-- Instagram -->
+        <div class="col-md-6">
+            <label class="form-label">İnstagram Adres</label>
+            <input type="url" class="form-control" asp-for="InstagramUrl" placeholder="https://instagram.com/..." required />
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="col-md-6">
+            <label class="form-label">LinkedIn Adres</label>
+            <input type="url" class="form-control" asp-for="LinkedInUrl" placeholder="https://linkedin.com/..." required />
+        </div>
+
+        <!-- Güncelle Butonu -->
+        <div class="col-12 mt-3">
+            <button class="btn btn-primary btn-lg w-100">
+                <i class="bi bi-save"></i> Güncelle
+            </button>
+        </div>
+    </div>
+</form>
