@@ -24,11 +24,9 @@ Bu proje, Benim Kişisel Portfolio Projemdir.
 
   📥 Gelen mesajları listeleme
 
-  🔎 Mesaj detaylarını modal popup ile görüntüleme
+  🔎 Mesajı modal popup ile görüntüleme
 
-  ✅ Mesajları Okundu / Okunmadı olarak işaretleme
-
-  🔄 Okunan / okunmamış mesajları filtreleme
+  🔄 Okunan / okunmamış mesajları listeleme
 
   🗑️ Mesaj silme
   
@@ -42,9 +40,7 @@ Bu proje, Benim Kişisel Portfolio Projemdir.
 
   📱 %100 responsive (mobil uyumlu) yapı
 
-  🎯 SweetAlert entegrasyonu ile etkileşimli uyarılar
-
-  🪟 Dinamik modal popup kullanımı
+  🎯 SweetAlert ile Uyarılar
   
 
 ⚙️ Kullanılan Teknolojiler
