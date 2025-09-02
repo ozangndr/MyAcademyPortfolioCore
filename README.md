@@ -1,8 +1,9 @@
 🌐 Kişisel Portföy Projesi (ASP.NET Core MVC)
+------------------------------------------------------------------------------ 
 Bu proje, ASP.NET Core MVC ve Entity Framework Core kullanılarak geliştirilmiş, dinamik ve yönetilebilir bir portföy uygulamasıdır.
 Amacım; yazılım geliştirme deneyimlerimi sergileyebileceğim, projelerimi ve yeteneklerimi paylaşabileceğim, modern bir yönetim paneline sahip web uygulaması oluşturmaktır.
 
-------------------------------------------------------------------------------
+
   ✨ Öne Çıkan Özellikler
   🛡️ Kimlik Doğrulama & Hesap Yönetimi
 
@@ -11,8 +12,9 @@ Amacım; yazılım geliştirme deneyimlerimi sergileyebileceğim, projelerimi ve
   👤 Profil bilgilerini güncelleme
 
   🔒 Şifre değiştirme (mevcut şifre doğrulama + yeni şifre tekrarı)
-------------------------------------------------------------------------------
+
 📬 Mesaj Yönetimi
+------------------------------------------------------------------------------
 
   📥 Gelen mesajları listeleme
 
@@ -23,14 +25,16 @@ Amacım; yazılım geliştirme deneyimlerimi sergileyebileceğim, projelerimi ve
   🔄 Okunan / okunmamış mesajları filtreleme
 
   🗑️ Mesaj silme
-------------------------------------------------------------------------------
+
 🗂️ Dinamik İçerik Yönetimi
+------------------------------------------------------------------------------
 
   📄 Hakkımda, Eğitim, Deneyimler, Yetenekler, Referanslar, Projeler için CRUD işlemleri
 
   ⚙️ Yönetim paneli üzerinden kolay kullanım
-------------------------------------------------------------------------------
+
 🎨 Arayüz & Kullanıcı Deneyimi
+------------------------------------------------------------------------------
 
   🖌️ Bootstrap tabanlı modern tasarım
 
@@ -42,9 +46,8 @@ Amacım; yazılım geliştirme deneyimlerimi sergileyebileceğim, projelerimi ve
 
   🪟 Dinamik modal popup kullanımı
 
-------------------------------------------------------------------------------  
-
 ⚙️ Kullanılan Teknolojiler
+------------------------------------------------------------------------------ 
 
   💻 Backend: ASP.NET Core MVC (.NET 8), C#
 
