@@ -55,4 +55,8 @@ Bu proje, Benim Kişisel Portfolio Projemdir.
   🎨 Frontend: HTML5, CSS3, Bootstrap, AdminLTE / Mantis Theme
 
   🧑‍💻 UI/UX: jQuery, SweetAlert, Modal Popup
+
+
+  Tanıtım Videosu
+  ------------------------------------------------------------------------------
   https://github.com/user-attachments/assets/90caf5cd-9118-4e04-b3de-58188559824c
